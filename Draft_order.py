@@ -1,7 +1,9 @@
 import random
 
 # Reigning Champ Nick Nahrwold, initials NN = 1414
-"""Follow the input prompts. Note - this does not test for bad inputs!"""
+"""Follow the input prompts.
+    Note: to build a new executable, install Pyinstaller
+    Then in the console, type Pyinstaller --onefile Draft_order.py"""
 
 year = input('What year is the coming season? (Four Digit Year) ')
 if int(year) < 1920 or int(year) > 3000:
