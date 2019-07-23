@@ -1,6 +1,5 @@
 ### This program develps a schedule for the League "Indiana's Finest"
 
-### Import necessary function
 import random
 
 ### Create Variables and Sets
@@ -57,8 +56,8 @@ b = False
 c = False
 
 
-### Build functions
-### Prints all schedules
+# Build functions
+# Prints all schedules
 def printAllSched():
     print
     print("David", David)
@@ -74,14 +73,16 @@ def printAllSched():
     print("Alex", Alex)
     print("Nick", Nick)
 
-### clears schedule for all teams
+
+# clears schedule for all teams
 def clearAllSched():
     for i in range(0,12):
         team = allTeamsSched[i]
         for j in range(0,7):
             team[j] = 0
 
-### removes all previously-scheduled games for given week to avoid scheduling conflict
+
+# removes all previously-scheduled games for given week to avoid scheduling conflict
 def removeWeekGames(week,oppTeams,allSchedule):
     for i in range(0,12):
         team = allSchedule[i]
@@ -89,12 +90,14 @@ def removeWeekGames(week,oppTeams,allSchedule):
             oppTeams.remove(team[week])
     return oppTeams
 
-### add function to assign game to opp sched
+
+# add function to assign game to opp sched
 def oppScheduler(week, team, oppTeam):
     oppTeamSched = teamDict[oppTeam]
     oppTeamSched[week] = team
 
-### prevents overwriting a previously scheduled game
+
+# prevents overwriting a previously scheduled game
 def alreadyScheduled(team, week):
     if type(team[week]) == str:
         return True
@@ -102,7 +105,7 @@ def alreadyScheduled(team, week):
         return False
 
 
-### assigns games for entire division
+# assigns games for entire division
 def divScheduler(dSched, Div, dOpp):
     for i in range(0,4):
         teamSched = dSched[i]
@@ -127,20 +130,15 @@ def divScheduler(dSched, Div, dOpp):
     return True
 
 
-### Base Program
+# Base Program
 while not (a and b and c): #check function needs to be only test variable
     count += 1
     print("Attempt:", count)
     clearAllSched()
     a = divScheduler(BooshSched, Boosh, oppBoosh)
-    #print "Boosh", a
-    #printAllSched()
     b = divScheduler(KakowSched, Kakow, oppKakow)
-    #print "kakow", b
-    #printAllSched()
     c = divScheduler(MasterCylinderSched, MasterCylinder, oppMasterCylinder) #redundant, replace with sched check function
-    #print "MC", c
-    #printAllSched()
+
 
 print("And the final schedule is....")
 printAllSched()
